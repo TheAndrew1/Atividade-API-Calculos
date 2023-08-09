@@ -46,14 +46,22 @@ public class ApiService {
     }
 
     private Entrada ordenarEntrada(Entrada entrada, int quantidade){
-        for(int i = 0; i < (quantidade - 1); i++){
-            int aux;
-            if (entrada.getValores().get(i).getValor() > entrada.getValores().get(i+1).getValor()){
-                aux = entrada.getValores().get(i).getValor();
-                entrada.getValores().get(i).setValor(entrada.getValores().get(i+1).getValor());
-                entrada.getValores().get(i+1).setValor(aux);
+        boolean ordenado = true;
+
+         do {
+            ordenado = true;
+
+            for(int i = 0; i < (quantidade - 1); i++){
+                int aux;
+                if (entrada.getValores().get(i).getValor() > entrada.getValores().get(i+1).getValor()){
+                    aux = entrada.getValores().get(i).getValor();
+                    entrada.getValores().get(i).setValor(entrada.getValores().get(i+1).getValor());
+                    entrada.getValores().get(i+1).setValor(aux);
+
+                    ordenado = false;
+                }
             }
-        }
+        }while (!ordenado);
 
         return entrada;
     }
