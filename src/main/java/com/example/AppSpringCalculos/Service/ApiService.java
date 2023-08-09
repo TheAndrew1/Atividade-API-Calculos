@@ -39,7 +39,7 @@ public class ApiService {
             mediana = ((double) entradaOrdenada.getValores().get((quantidade / 2) - 1).getValor() + entradaOrdenada.getValores().get((quantidade / 2)).getValor()) / 2;
         }
         else {
-            mediana = entradaOrdenada.getValores().get((Math.ceilDiv(quantidade, 2)) - 1).getValor();
+            mediana = entradaOrdenada.getValores().get(Math.floorDiv(quantidade, 2)).getValor();
         }
 
         return mediana;
