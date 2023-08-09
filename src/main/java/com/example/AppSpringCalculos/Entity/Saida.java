@@ -10,9 +10,9 @@ public class Saida {
     @Getter @Setter
     private double media;
     @Getter @Setter
-    private double devioPadrao;
+    private double desvioPadrao;
     @Getter @Setter
     private int quantidade;
     @Getter @Setter
-    private int mediana;
+    private double mediana;
 }
