@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data @AllArgsConstructor @NoArgsConstructor
-public class Saida {
-    private double media;
-    private double desvioPadrao;
-    private int quantidade;
-    private double mediana;
+public class Entrada {
+    private List<Valor> valores;
 }

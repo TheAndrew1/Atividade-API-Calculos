@@ -1,6 +1,8 @@
 package com.example.AppSpringCalculos.Service;
 
+import com.example.AppSpringCalculos.Entity.Entrada;
 import com.example.AppSpringCalculos.Entity.Saida;
+import com.example.AppSpringCalculos.Entity.Valor;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +18,7 @@ public class ApiService {
         return saida;
     }
 
-    private double calcularMedia(Entrada entrada, int quantidade){
+    public double calcularMedia(Entrada entrada, int quantidade){
         double soma = 0;
 
         for(Valor valor : entrada.getValores()){
@@ -26,7 +28,7 @@ public class ApiService {
         return soma/quantidade;
     }
 
-    private double calcularMediana(Entrada entrada, int quantidade){
+    public double calcularMediana(Entrada entrada, int quantidade){
         double mediana;
         Entrada entradaOrdenada = this.ordenarEntrada(entrada, quantidade);
 
@@ -40,7 +42,7 @@ public class ApiService {
         return mediana;
     }
 
-    private Entrada ordenarEntrada(Entrada entrada, int quantidade){
+    public Entrada ordenarEntrada(Entrada entrada, int quantidade){
         boolean ordenado = true;
 
          do {
@@ -61,7 +63,7 @@ public class ApiService {
         return entrada;
     }
 
-    private double calcularDesvioPadrao(Entrada entrada, Saida saida){
+    public double calcularDesvioPadrao(Entrada entrada, Saida saida){
         double desvioPadrao;
         double somatorioDiferencas = 0;
 

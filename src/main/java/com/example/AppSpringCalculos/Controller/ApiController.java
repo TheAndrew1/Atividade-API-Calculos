@@ -1,5 +1,6 @@
 package com.example.AppSpringCalculos.Controller;
 
+import com.example.AppSpringCalculos.Entity.Entrada;
 import com.example.AppSpringCalculos.Entity.Saida;
 import com.example.AppSpringCalculos.Service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
