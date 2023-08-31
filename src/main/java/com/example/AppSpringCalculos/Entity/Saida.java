@@ -10,4 +10,7 @@ public class Saida {
     private double desvioPadrao;
     private int quantidade;
     private double mediana;
+    private int soma;
+    private int maximo;
+    private int minimo;
 }

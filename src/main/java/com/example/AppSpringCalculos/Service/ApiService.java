@@ -4,10 +4,13 @@ import com.example.AppSpringCalculos.Entity.Entrada;
 import com.example.AppSpringCalculos.Entity.Saida;
 import com.example.AppSpringCalculos.Entity.Valor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 @Service
 public class ApiService {
     public Saida calcular(Entrada entrada){
+        Assert.isTrue(entrada.getValores().size() >= 20, "Deve conter mais de 20 valores!");
+
         Saida saida = new Saida();
 
         saida.setQuantidade(entrada.getValores().size());
@@ -74,5 +77,39 @@ public class ApiService {
         desvioPadrao = Math.sqrt(somatorioDiferencas/saida.getQuantidade());
 
         return desvioPadrao;
+    }
+
+    public int soma(Entrada entrada) {
+        int soma = 0;
+
+        for(Valor valor : entrada.getValores()){
+            soma += valor.getValor();
+        }
+
+        return soma;
+    }
+
+    public int max(Entrada entrada) {
+        int max = entrada.getValores().get(0).getValor();
+
+        for(Valor valor : entrada.getValores()){
+            if (valor.getValor() > max){
+                max = valor.getValor();
+            }
+        }
+
+        return max;
+    }
+
+    public int min(Entrada entrada) {
+        int min = entrada.getValores().get(0).getValor();
+
+        for(Valor valor : entrada.getValores()){
+            if (valor.getValor() < min){
+                min = valor.getValor();
+            }
+        }
+
+        return min;
     }
 }

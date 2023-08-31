@@ -6,7 +6,6 @@ import com.example.AppSpringCalculos.Entity.Valor;
 import com.example.AppSpringCalculos.Service.ApiService;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
@@ -48,6 +47,45 @@ public class testeAppCalculos {
         Saida saida = new Saida(10.5, 0, 20, 10.5);
 
         double desvioPadrao = apiService.calcularDesvioPadrao(entrada, saida);
-        Assert.assertEquals(5.766, desvioPadrao, 0);
+        Assert.assertEquals(5.766, desvioPadrao, 0.001);
+    }
+
+    @Test
+    public void testCalcularSoma(){
+        ApiService apiService = new ApiService();
+
+        Entrada entrada = new Entrada(List.of(new Valor(1), new Valor(20), new Valor(3), new Valor(4), new Valor(14), new Valor(6), new Valor(7),
+                new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
+                new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
+
+        int soma = apiService.soma(entrada);
+
+        Assert.assertEquals(210, soma);
+    }
+
+    @Test
+    public void testCalcularMaximo(){
+        ApiService apiService = new ApiService();
+
+        Entrada entrada = new Entrada(List.of(new Valor(1), new Valor(20), new Valor(3), new Valor(4), new Valor(14), new Valor(6), new Valor(7),
+                new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
+                new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
+
+        int maximo = apiService.max(entrada);
+
+        Assert.assertEquals(20, maximo);
+    }
+
+    @Test
+    public void testCalcularMinimo(){
+        ApiService apiService = new ApiService();
+
+        Entrada entrada = new Entrada(List.of(new Valor(1), new Valor(20), new Valor(3), new Valor(4), new Valor(14), new Valor(6), new Valor(7),
+                new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
+                new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
+
+        int minimo = apiService.min(entrada);
+
+        Assert.assertEquals(1, minimo);
     }
 }
