@@ -1,12 +1,7 @@
 package com.example.AppSpringCalculos.Service;
 
-import com.example.AppSpringCalculos.Entity.Entrada;
 import com.example.AppSpringCalculos.Entity.Saida;
-import com.example.AppSpringCalculos.Entity.Valor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ApiService {
