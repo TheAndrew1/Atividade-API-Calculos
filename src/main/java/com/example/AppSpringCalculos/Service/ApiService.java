@@ -17,6 +17,9 @@ public class ApiService {
         saida.setMedia(this.calcularMedia(entrada, saida.getQuantidade()));
         saida.setMediana(this.calcularMediana(entrada, saida.getQuantidade()));
         saida.setDesvioPadrao(this.calcularDesvioPadrao(entrada, saida));
+        saida.setSoma(this.calcularSoma(entrada));
+        saida.setMaximo(this.verificarMaximo(entrada));
+        saida.setMinimo(this.verificarMinimo(entrada));
 
         return saida;
     }
@@ -79,7 +82,7 @@ public class ApiService {
         return desvioPadrao;
     }
 
-    public int soma(Entrada entrada) {
+    public int calcularSoma(Entrada entrada) {
         int soma = 0;
 
         for(Valor valor : entrada.getValores()){
@@ -89,7 +92,7 @@ public class ApiService {
         return soma;
     }
 
-    public int max(Entrada entrada) {
+    public int verificarMaximo(Entrada entrada) {
         int max = entrada.getValores().get(0).getValor();
 
         for(Valor valor : entrada.getValores()){
@@ -101,7 +104,7 @@ public class ApiService {
         return max;
     }
 
-    public int min(Entrada entrada) {
+    public int verificarMinimo(Entrada entrada) {
         int min = entrada.getValores().get(0).getValor();
 
         for(Valor valor : entrada.getValores()){

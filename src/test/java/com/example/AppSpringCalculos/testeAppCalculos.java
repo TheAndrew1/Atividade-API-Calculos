@@ -44,7 +44,7 @@ public class testeAppCalculos {
                 new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
                 new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
 
-        Saida saida = new Saida(10.5, 0, 20, 10.5);
+        Saida saida = new Saida(10.5, 0, 20, 10.5, 210, 20, 1);
 
         double desvioPadrao = apiService.calcularDesvioPadrao(entrada, saida);
         Assert.assertEquals(5.766, desvioPadrao, 0.001);
@@ -58,7 +58,7 @@ public class testeAppCalculos {
                 new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
                 new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
 
-        int soma = apiService.soma(entrada);
+        int soma = apiService.calcularSoma(entrada);
 
         Assert.assertEquals(210, soma);
     }
@@ -71,7 +71,7 @@ public class testeAppCalculos {
                 new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
                 new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
 
-        int maximo = apiService.max(entrada);
+        int maximo = apiService.verificarMaximo(entrada);
 
         Assert.assertEquals(20, maximo);
     }
@@ -84,7 +84,7 @@ public class testeAppCalculos {
                 new Valor(8), new Valor(9), new Valor(10), new Valor(11), new Valor(12), new Valor(13), new Valor(5), new Valor(15), new Valor(17),
                 new Valor(16), new Valor(18), new Valor(19), new Valor(2)));
 
-        int minimo = apiService.min(entrada);
+        int minimo = apiService.verificarMinimo(entrada);
 
         Assert.assertEquals(1, minimo);
     }
